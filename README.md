@@ -34,14 +34,15 @@ $maxProfit = 0;
 
 $maxBurger=floor($breads/2);
 
+//finding the maximum cost of burger
 $maxCost=max($priceVegBurger, $priceNonVegBurger, $priceTikkiBurger);
 
-
+//finding the minimum cost of burger
 $minCost=min($priceVegBurger, $priceNonVegBurger, $priceTikkiBurger);
 
 
 for($i=0; $i<$maxBurger; $i++){
-   
+   //Finding the maximum cost
     if($maxCost==$priceNonVegBurger && $nonVegPattice>0){
        
         $maxProfit+=$priceNonVegBurger;
@@ -56,24 +57,24 @@ for($i=0; $i<$maxBurger; $i++){
         }
     
     else if($maxCost==$priceTikkiBurger && $TikkiPattice>0){
+      
         $maxProfit+=$priceTikkiBurger;
       $TikkiPattice--;
-       
-        
+          
     }
     
     
    else  if($maxCost!=$priceNonVegBurger && $minCost!=$priceNonVegBurger && $nonVegPattice>0){
+      
         $maxProfit+=$priceNonVegBurger;
         $nonVegPattice--;
-       
-        
+          
     }
     else  if($maxCost!=$priceVegBurger && $minCost!=$priceVegBurger && $vegPattice>0){
+       
         $maxProfit+=$priceVegBurger;
         $vegPattice--;
-       
-        
+         
     }
     
      else if($maxCost!=$priceTikkiBurger && $minCost!=$priceTikkiBurger && $TikkiPattice>0){
