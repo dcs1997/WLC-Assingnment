@@ -42,83 +42,61 @@ $minCost=min($priceVegBurger, $priceNonVegBurger, $priceTikkiBurger);
 
 
 for($i=0; $i<$maxBurger; $i++){
-   //Finding the maximum cost
-    if($maxCost==$priceNonVegBurger && $nonVegPattice>0){
-       
+   // Check if the most expensive burger type is available and make that burger
+   if($maxCost==$priceNonVegBurger && $nonVegPattice>0){
         $maxProfit+=$priceNonVegBurger;
-        $nonVegPattice--;
-        
+        $nonVegPattice--; 
       }
+      
       else  if($maxCost==$priceVegBurger && $vegPattice>0){
-       
-        $maxProfit+=$priceVegBurger;
+       $maxProfit+=$priceVegBurger;
         $vegPattice--;
-       
         }
     
     else if($maxCost==$priceTikkiBurger && $TikkiPattice>0){
-      
-        $maxProfit+=$priceTikkiBurger;
-      $TikkiPattice--;
-          
+       $maxProfit+=$priceTikkiBurger;
+       $TikkiPattice--;      
     }
-    
-    
-   else  if($maxCost!=$priceNonVegBurger && $minCost!=$priceNonVegBurger && $nonVegPattice>0){
-      
+
+
+
+    // Check if the burger is not the most expensive and not the least expensive and make that burger
+     else  if($maxCost!=$priceNonVegBurger && $minCost!=$priceNonVegBurger && $nonVegPattice>0){
         $maxProfit+=$priceNonVegBurger;
-        $nonVegPattice--;
-          
+        $nonVegPattice--;   
     }
+    
     else  if($maxCost!=$priceVegBurger && $minCost!=$priceVegBurger && $vegPattice>0){
-       
         $maxProfit+=$priceVegBurger;
-        $vegPattice--;
-         
+        $vegPattice--;   
     }
     
      else if($maxCost!=$priceTikkiBurger && $minCost!=$priceTikkiBurger && $TikkiPattice>0){
         $maxProfit+=$priceTikkiBurger;
-      $TikkiPattice--;
-      
-       
-        
+        $TikkiPattice--;  
     }
+
+
     
-    
-    
-    
+    // Check if the least expensive burger type is available and make that burger
     else if($minCost==$priceNonVegBurger && $nonVegPattice>0){
         $maxProfit+=$priceNonVegBurger;
-        $nonVegPattice--;
-       
-        
+        $nonVegPattice--;    
     }
+    
     else  if($minCost==$priceVegBurger && $vegPattice>0){
         $maxProfit+=$priceVegBurger;
-        $vegPattice--;
-       
-        
+        $vegPattice--;   
     }
     
     else if($minCost==$priceTikkiBurger && $TikkiPattice>0){
         $maxProfit+=$priceTikkiBurger;
-        $TikkiPattice--;
-       
-        
+        $TikkiPattice--;   
     }
     
 }
 
-
-
 echo $maxProfit;
-
-
-
-
-
-
 ?>
 
 
